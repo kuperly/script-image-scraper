@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center page-title">Images Scraper</h1>
+      <div class="image-wrapper row">
+        <% images.forEach(function(image){ %>
+        <div class="col-sm-4 col-md-3 text-center images-wrapper">
+          <img width="120" src="./images/<%= image %>" />
+          <div><%= image %></div>
+        </div>
+        <% }); %>
+      </div>
+    </div>
+  </body>
+</html>
