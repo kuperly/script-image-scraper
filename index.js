@@ -8,8 +8,9 @@ const init = async (url, output) => {
   files.initDirectory(processPath);
 
   let images = await browserObject.getImagesFromURL(url);
+
   await files.downloadImagesAndSaveToFile(processPath, images);
-  await htmlHandle.buildHtml(processPath);
+  await htmlHandle.buildHtml(processPath, images);
   await files.copyFilesToDirectory(processPath);
   await browserObject.openInBrowser(processPath);
 };

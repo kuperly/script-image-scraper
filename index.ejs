@@ -13,10 +13,15 @@
     <div class="container">
       <h1 class="text-center page-title">Images Scraper</h1>
       <div class="image-wrapper row">
-        <% images.forEach(function(image){ %>
+        <% images.forEach(function(image, index){ %>
         <div class="col-sm-4 col-md-3 text-center images-wrapper">
+          <% if(imgObj[index].src.indexOf('data:') !== -1){ %>
+          <img width="120" src="<%= imgObj[index].src %>" />
+          <% } else{ %>
           <img width="120" src="./images/<%= image %>" />
-          <div><%= image %></div>
+          <% } %>
+
+          <div><%= imgObj[index].alt %></div>
         </div>
         <% }); %>
       </div>

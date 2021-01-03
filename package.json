@@ -1,18 +1,22 @@
 {
   "name": "script-image-scraper",
-  "version": "1.0.4",
-  "description": "",
+  "version": "1.0.5",
+  "description": "Download all images from received URL and preview results in HTML file",
   "main": "bin.js",
   "scripts": {
-    "test": "jest",
-    "start": "script-image-scraper"
+    "test": "jest"
   },
   "bin": {
     "script-image-scraper": "./bin.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kuperly/script-image-scraper.git"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.21.1",
     "ejs": "^3.1.5",
     "fs-extra": "^9.0.1",
     "open": "^7.3.0",

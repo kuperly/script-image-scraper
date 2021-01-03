@@ -4,7 +4,6 @@ const open = require("open");
 const startBrowser = async () => {
   let browser;
   try {
-    // console.log("Opening the browser......");
     browser = await puppeteer.launch({
       headless: true,
       args: ["--disable-setuid-sandbox"],
@@ -27,10 +26,14 @@ const getImagesFromURL = async (url) => {
   const page = await browser.newPage();
   await page.goto(url);
 
-  // Getting all images src
-  const imagesUrl = await page.evaluate(() =>
-    Array.from(document.images, (e) => e.src)
-  );
+  // Getting all images src that not base64
+  const imagesUrl = await page.evaluate(() => {
+    return Array.from(document.images, (e) => {
+      return { src: e.src, size: e.size, width: e.width, alt: e.alt };
+    })
+      .filter((e) => e.src.length && e.width >= 120)
+      .slice(0, 100);
+  });
 
   await browser.close();
 
